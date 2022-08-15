@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./index.css";
 
-function App() {
+export default function App() {
+  const [seconds, setSeconds] = useState(59);
+  const [centiseconds, setCentiSeconds] = useState(9);
+  const handleClick = () => {
+    console.log("turned");
+    setSeconds(59);
+    setCentiSeconds(9);
+  };
+  const [paused, setPaused] = useState(false);
+
+  const handlePause = (e) => {
+    e.stopPropagation();
+    setPaused(!paused);
+
+    console.log({ paused });
+  };
+
+  useEffect(() => {
+    const countdown = setInterval(() => {
+      if (!paused) {
+        if (parseInt(centiseconds) > 0) {
+          setCentiSeconds(parseInt(centiseconds) - 1);
+        }
+
+        if (parseInt(centiseconds) === 0) {
+          if (parseInt(seconds) > 0) {
+            setSeconds(parseInt(seconds) - 1);
+            setCentiSeconds(9);
+          }
+          if (parseInt(seconds) === 0 && parseInt(centiseconds) === 0) {
+            setCentiSeconds(9);
+            setSeconds(59);
+          }
+        }
+      }
+    }, 100);
+    return () => clearInterval(countdown);
+  }, [seconds, centiseconds, paused]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div onClick={handleClick}>
+        {seconds < 10 ? `0${seconds}` : seconds}.{centiseconds}
+        <div className="pause">
+          <button onClick={handlePause}>{paused ? "Resume" : "Pause"}</button>
+        </div>
+      </div>
     </div>
   );
 }
-
-export default App;
