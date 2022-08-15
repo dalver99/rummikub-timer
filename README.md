@@ -1,5 +1,5 @@
 # https://jinsang-timer.web.app/
-
+(Works best on phone / 휴대폰 사용을 위해 제작됨)
 # This is a rummikub timer! Free to use :D
 
 ## Send any suggestions to @jykevinkim
