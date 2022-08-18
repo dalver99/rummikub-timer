@@ -42,6 +42,7 @@ export default function App() {
 
   return (
     <div className="App">
+      {/* <div style={{ backgroundColor: "#FF00FF" }} onClick={handleClick}> */}
       <div onClick={handleClick}>
         {seconds < 10 ? `0${seconds}` : seconds}.{centiseconds}
         <div className="pause">
