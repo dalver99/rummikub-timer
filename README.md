@@ -25,7 +25,7 @@ add player number, for player color identification
 #### 추후 업데이트 예정
 
 남은 시간에 따른 색 변경
-10초 남았을 때 소리 발생
+10초 남았을 때 소리 발생 > 적용 - 10초에 핑크색으로 깜빡임
 0초에서 일단 멈춤
 
 #### 추가할지도 모름
