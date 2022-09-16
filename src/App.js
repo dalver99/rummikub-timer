@@ -41,12 +41,15 @@ export default function App() {
   }, [seconds, centiseconds, paused]);
 
   return (
-    <div className="App">
-      {/* <div style={{ backgroundColor: "#FF00FF" }} onClick={handleClick}> */}
+    <div className="App" style={{ backgroundColor: "var(--primary-color)" }}>
+      {/* {style={{ backgroundColor: var(--primary-color) }}} */}
       <div onClick={handleClick}>
-        {seconds < 10 ? `0${seconds}` : seconds}.{centiseconds}
+        {/* {seconds < 10 ? `0${seconds}` : seconds}.{centiseconds} */}
+        {seconds}.{centiseconds}
         <div className="pause">
-          <button onClick={handlePause}>{paused ? "Resume" : "Pause"}</button>
+          <button onClick={handlePause} onDrag={handlePause}>
+            {paused ? "Resume" : "Pause"}
+          </button>
         </div>
       </div>
     </div>
