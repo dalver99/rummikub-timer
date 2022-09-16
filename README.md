@@ -9,8 +9,8 @@
 #### will update...
 
 Color change by remaining time
-Beep sound on 10s remaining
-Auto-stop at 0s
+Beep sound on 10s remaining > Done
+Auto-stop at 0s > Done
 
 #### might add...
 
@@ -26,7 +26,11 @@ add player number, for player color identification
 
 남은 시간에 따른 색 변경
 10초 남았을 때 소리 발생 > 적용 - 10초에 핑크색으로 깜빡임
-0초에서 일단 멈춤
+0초에서 일단 멈춤 > 적용
+
+### Updated
+
+정확한 터치가 아니어도 타이머가 초기화됨
 
 #### 추가할지도 모름
 
