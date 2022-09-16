@@ -10,6 +10,7 @@ export default function App() {
     setCentiSeconds(9);
   };
   const [paused, setPaused] = useState(false);
+  const [tensec, setTensec] = useState(false);
 
   const handlePause = (e) => {
     e.stopPropagation();
@@ -36,13 +37,19 @@ export default function App() {
           }
         }
       }
+
+      if (seconds == 10 && centiseconds == 0) {
+        setTensec(true);
+      }
+      if ((seconds == 9 && centiseconds == 9) || seconds == 59) {
+        setTensec(false);
+      }
     }, 100);
     return () => clearInterval(countdown);
   }, [seconds, centiseconds, paused]);
 
   return (
-    <div className="App" style={{ backgroundColor: "var(--primary-color)" }}>
-      {/* {style={{ backgroundColor: var(--primary-color) }}} */}
+    <div className={tensec ? "ten" : "App"}>
       <div onClick={handleClick}>
         {/* {seconds < 10 ? `0${seconds}` : seconds}.{centiseconds} */}
         {seconds}.{centiseconds}
