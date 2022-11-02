@@ -5,7 +5,7 @@ body {
 }
 
 .App {
-  padding-top: 20vh;
+  padding-top: 30vh;
   align-items: center;
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
@@ -23,13 +23,31 @@ body {
 }
 
 .ten {
-  padding-top: 20vh;
+  padding-top: 30vh;
   align-items: center;
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
   width: 100%;
   height: 80vh;
   background-color: #ff0000;
+
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  font-size: 20vh;
+  color: rgb(0, 0, 0);
+}
+
+.turn {
+  padding-top: 30vh;
+  align-items: center;
+  margin: 0 auto;
+  border-bottom: 1px solid #f2f2f2;
+  width: 100%;
+  height: 80vh;
+  background-color: #00ff00;
 
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;

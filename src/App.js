@@ -12,6 +12,7 @@ export default function App() {
   };
   const [paused, setPaused] = useState(false);
   const [tensec, setTensec] = useState(false);
+  const [turn, setTurn] = useState(false);
   const scrollBy = useScrollBy();
 
   const handlePause = (e) => {
@@ -52,6 +53,15 @@ export default function App() {
       if (parseInt(seconds) === 10 && parseInt(centiseconds) === 0) {
         setTensec(true);
       }
+      if (parseInt(seconds) === 59 && parseInt(centiseconds) === 9) {
+        setTurn(true);
+      }
+      if (
+        (parseInt(seconds) === 59 && parseInt(centiseconds) === 7) ||
+        (parseInt(seconds) === 59 && parseInt(centiseconds) === 8)
+      ) {
+        setTurn(false);
+      }
       if (
         (parseInt(seconds) === 9 && parseInt(centiseconds) === 9) ||
         parseInt(seconds) === 59
@@ -66,13 +76,13 @@ export default function App() {
   }, [seconds, centiseconds, paused]);
 
   return (
-    <div className={tensec ? "ten" : "App"}>
+    <div className={tensec ? "ten" : turn ? "turn" : "App"}>
       <div onClick={handleClick} onDragEnd={handleClick} onDrag={handleClick}>
         {/* {seconds < 10 ? `0${seconds}` : seconds}.{centiseconds} */}
         {seconds}.{centiseconds}
-        <div className="pause">
+        {/* <div className="pause">
           <button onClick={handlePause}>{paused ? "Resume" : "Pause"}</button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
